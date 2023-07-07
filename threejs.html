@@ -41,8 +41,8 @@
         // helper
         //const gridHelper = new THREE.GridHelper(1000,20); // size, step
         //scene.add(gridHelper);
-        const axisHelper = new THREE.AxisHelper(1000); //軸の長さ　X：赤、Y：緑、z：青
-        scene.add(axisHelper);
+        //const axisHelper = new THREE.AxisHelper(1000); //軸の長さ　X：赤、Y：緑、z：青
+        //scene.add(axisHelper);
 
         // マテリアルを作成する
         const material = new THREE.SpriteMaterial({
@@ -50,6 +50,19 @@
         });
         // フォグ（霞）を有効にする
        // material.fog = true;
+
+        // ビルボードを作成
+        for (let i = 0; i < 100; i++) {
+          const sprite = new THREE.Sprite(material);
+          // ランダムな座標に配置
+          sprite.position.x = 1000 * (Math.random() - 0.5);
+          sprite.position.y = 300 * Math.random() - 150;
+          sprite.position.z = 1000 * (Math.random() - 0.5);
+          // 必要に応じてスケールを調整
+          sprite.scale.set(50, 50, 50);
+
+          scene.add(sprite);
+        }
 
         // トーチの作成
         var cylinderGeometry = new THREE.CylinderGeometry( 50, 30, 200, 8 );
