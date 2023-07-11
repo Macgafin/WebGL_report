@@ -45,13 +45,9 @@
         //scene.add(axisHelper);
 
          // マテリアルを作成する
-        const material = new THREE.SpriteMaterial();
-
-        // テクスチャの読み込み
-        const textureLoader = new THREE.TextureLoader();
-        textureLoader.load('img/starr.png', function(texture) {
-        // テクスチャの読み込みが完了したらマテリアルに設定する
-        material.map = texture;
+         const material = new THREE.SpriteMaterial({
+          map: new THREE.TextureLoader().load('img/star.png')
+        });
 
         // フォグ（霞）を有効にする
          // material.fog = true;
